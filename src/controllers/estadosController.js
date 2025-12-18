@@ -8,7 +8,7 @@ function listarEstados(req, res) {
 }
 
 function listarEstadoPorId(req, res) {
-  const id = parseInt(req.params.id) // pega o id da URL
+  const id = parseInt(req.params.id)
   const estado = estados.find((e) => e.id === id)
 
   if (!estado) {
@@ -18,4 +18,4 @@ function listarEstadoPorId(req, res) {
   res.json(estado)
 }
 
-module.exports = { listarEstados, listarEstadoPorId }
+module.exports = { estados, listarEstados, listarEstadoPorId }

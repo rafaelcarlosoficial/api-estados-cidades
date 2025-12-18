@@ -1,4 +1,6 @@
-const cidades = [
+const { estados } = require('./estadosController')
+
+let cidades = [
   { id: 1, nome: 'Campinas', estado_uf: 'SP' },
   { id: 2, nome: 'Rio de Janeiro', estado_uf: 'RJ' },
 ]
@@ -21,8 +23,11 @@ function listarCidadePorId(req, res) {
 function criarCidade(req, res) {
   const { nome, estado_uf } = req.body
 
-  if (!nome || !estado_uf) {
-    return res.status(400).json({ error: 'nome e estado_uf são obrigatórios' })
+  //  valida se o estado existe
+  const estadoExiste = estados.some((e) => e.uf === estado_uf)
+
+  if (!estadoExiste) {
+    return res.status(400).json({ error: 'Estado não existe' })
   }
 
   const novaCidade = {
@@ -32,7 +37,6 @@ function criarCidade(req, res) {
   }
 
   cidades.push(novaCidade)
-
   res.status(201).json(novaCidade)
 }
 
