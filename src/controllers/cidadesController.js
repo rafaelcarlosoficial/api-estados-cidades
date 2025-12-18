@@ -18,4 +18,26 @@ function listarCidadePorId(req, res) {
   res.json(cidade)
 }
 
-module.exports = { listarCidades, listarCidadePorId }
+function criarCidade(req, res) {
+  const { nome, estado_uf } = req.body
+
+  if (!nome || !estado_uf) {
+    return res.status(400).json({ error: 'nome e estado_uf são obrigatórios' })
+  }
+
+  const novaCidade = {
+    id: cidades.length + 1,
+    nome,
+    estado_uf,
+  }
+
+  cidades.push(novaCidade)
+
+  res.status(201).json(novaCidade)
+}
+
+module.exports = {
+  listarCidades,
+  listarCidadePorId,
+  criarCidade,
+}

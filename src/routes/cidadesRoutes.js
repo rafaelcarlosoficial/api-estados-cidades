@@ -3,10 +3,14 @@ const router = express.Router()
 const {
   listarCidades,
   listarCidadePorId,
+  criarCidade,
 } = require('../controllers/cidadesController')
 
-// Rotas GET
-router.get('/cidades', listarCidades)
-router.get('/cidades/:id', listarCidadePorId)
+// GET
+router.get('/', listarCidades)
+router.get('/:id', listarCidadePorId)
+
+// POST
+router.post('/', criarCidade)
 
 module.exports = router
