@@ -20,3 +20,6 @@ app.use((req, res, next) => {
 app.listen(3000, () => {
   console.log('API rodando na porta 3000')
 })
+
+const estadosRoutes = require('./routes/estadosRoutes')
+app.use('/', estadosRoutes)
