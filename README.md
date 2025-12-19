@@ -56,5 +56,5 @@ O projeto atualmente possui **CRUD completo para cidades** e endpoints para list
 
 1. Clone o repositório:  
    ```bash
-   git clone <URL_DO_REPOSITORIO>
+   git clone https://github.com/rafaelcarlosoficial/api-estados-cidades
    cd api-estados-cidades
