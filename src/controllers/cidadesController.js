@@ -39,9 +39,39 @@ function criarCidade(req, res) {
   cidades.push(novaCidade)
   res.status(201).json(novaCidade)
 }
+function atualizarCidade(req, res) {
+  const id = parseInt(req.params.id)
+  const { nome, estado_uf } = req.body
+
+  const cidade = cidades.find((c) => c.id === id)
+
+  if (!cidade) {
+    return res.status(404).json({ error: 'Cidade não encontrada' })
+  }
+
+  if (nome) cidade.nome = nome
+  if (estado_uf) cidade.estado_uf = estado_uf
+
+  res.json(cidade)
+}
+
+function removerCidade(req, res) {
+  const id = parseInt(req.params.id)
+  const index = cidades.findIndex((c) => c.id === id)
+
+  if (index === -1) {
+    return res.status(404).json({ error: 'Cidade não encontrada' })
+  }
+
+  cidades.splice(index, 1)
+
+  res.status(204).send()
+}
 
 module.exports = {
   listarCidades,
   listarCidadePorId,
   criarCidade,
+  atualizarCidade,
+  removerCidade,
 }
