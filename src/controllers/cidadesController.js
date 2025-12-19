@@ -23,7 +23,10 @@ function listarCidadePorId(req, res) {
 function criarCidade(req, res) {
   const { nome, estado_uf } = req.body
 
-  //  valida se o estado existe
+  if (!nome || !estado_uf) {
+    return res.status(400).json({ error: 'Nome e estado_uf são obrigatórios' })
+  }
+
   const estadoExiste = estados.some((e) => e.uf === estado_uf)
 
   if (!estadoExiste) {
@@ -39,6 +42,7 @@ function criarCidade(req, res) {
   cidades.push(novaCidade)
   res.status(201).json(novaCidade)
 }
+
 function atualizarCidade(req, res) {
   const id = parseInt(req.params.id)
   const { nome, estado_uf } = req.body
@@ -47,6 +51,17 @@ function atualizarCidade(req, res) {
 
   if (!cidade) {
     return res.status(404).json({ error: 'Cidade não encontrada' })
+  }
+
+  if (nome !== undefined && nome.trim() === '') {
+    return res.status(400).json({ error: 'Nome inválido' })
+  }
+
+  if (estado_uf) {
+    const estadoExiste = estados.some((e) => e.uf === estado_uf)
+    if (!estadoExiste) {
+      return res.status(400).json({ error: 'Estado não existe' })
+    }
   }
 
   if (nome) cidade.nome = nome
@@ -64,7 +79,6 @@ function removerCidade(req, res) {
   }
 
   cidades.splice(index, 1)
-
   res.status(204).send()
 }
 

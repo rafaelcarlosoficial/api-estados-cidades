@@ -12,7 +12,7 @@ app.use((req, res, next) => {
   next()
 })
 
-// Rotas específicas
+// Rotas
 app.use('/cidades', require('./routes/cidadesRoutes'))
 app.use('/estados', require('./routes/estadosRoutes'))
 

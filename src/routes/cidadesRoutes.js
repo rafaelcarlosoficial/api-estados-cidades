@@ -11,11 +11,8 @@ const {
 
 router.get('/', listarCidades)
 router.get('/:id', listarCidadePorId)
-
 router.post('/', criarCidade)
-
 router.put('/:id', atualizarCidade)
-
 router.delete('/:id', removerCidade)
 
 module.exports = router
