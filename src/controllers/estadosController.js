@@ -18,4 +18,8 @@ function listarEstadoPorId(req, res) {
   res.json(estado)
 }
 
-module.exports = { estados, listarEstados, listarEstadoPorId }
+module.exports = {
+  estados,
+  listarEstados,
+  listarEstadoPorId,
+}
