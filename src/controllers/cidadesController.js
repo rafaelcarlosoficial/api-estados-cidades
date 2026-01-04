@@ -3,6 +3,9 @@ const { estados } = require('./estadosController')
 let cidades = [
   { id: 1, nome: 'Campinas', estado_uf: 'SP' },
   { id: 2, nome: 'Rio de Janeiro', estado_uf: 'RJ' },
+  { id: 3, nome: 'Belo Horizonte', estado_uf: 'MG' },
+  { id: 4, nome: 'Curitiba', estado_uf: 'PR' },
+  { id: 5, nome: 'Porto Alegre', estado_uf: 'RS' },
 ]
 
 function listarCidades(req, res) {
@@ -22,9 +25,22 @@ function listarCidadePorId(req, res) {
 
 function criarCidade(req, res) {
   const { nome, estado_uf } = req.body
+  // console.log(nome)
 
   if (!nome || !estado_uf) {
     return res.status(400).json({ error: 'Nome e estado_uf são obrigatórios' })
+  }
+
+  const cidadeExiste = cidades.some((e) => {
+    return (
+      e.nome.toLowerCase() === nome.toLowerCase() &&
+      e.estado_uf.toLowerCase() === estado_uf.toLowerCase()
+    )
+  })
+
+  console.log(cidadeExiste)
+  if (cidadeExiste) {
+    return res.status(409).json({ error: 'Estado e cidades já cadastrado' })
   }
 
   const estadoExiste = estados.some((e) => e.uf === estado_uf)

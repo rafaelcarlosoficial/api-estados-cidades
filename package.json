@@ -1,15 +1,19 @@
 {
   "name": "api-estados-cidades",
   "version": "1.0.0",
-  "description": "",
+  "description": "Esta é uma **API REST simples** desenvolvida em **Node.js** com **Express**, que permite gerenciar **Estados** e **Cidades** do Brasil.  \r O projeto atualmente possui **CRUD completo para cidades** e endpoints para listar estados. Futuramente, será conectada a um banco de dados MySQL.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon src"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.11"
   }
 }

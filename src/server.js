@@ -5,7 +5,9 @@ app.use(express.json())
 
 // Middleware de autenticação
 app.use((req, res, next) => {
+  // console.log('HEADERS:', req.headers)
   const auth = req.headers.authorization
+  // console.log(auth)
   if (auth !== 'Bearer MEU_TOKEN_FIXO') {
     return res.status(401).json({ error: 'Não autorizado' })
   }
