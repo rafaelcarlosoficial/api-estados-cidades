@@ -1,5 +1,7 @@
 # API de Estados e Cidades do Brasil
-Documentação completa: https://documenter.getpostman.com/view/47396454/2sBXVhBqBc 
+<a href="https://documenter.getpostman.com/view/47396454/2sBXVhBqBc" target="_blank">
+  📄 Documentação completa (Postman)
+</a>
 
 
 Esta é uma **API REST simples** desenvolvida em **Node.js** com **Express**, que permite gerenciar **Estados** e **Cidades** do Brasil.  
