@@ -1,5 +1,5 @@
 # API de Estados e Cidades do Brasil
-
+Documentação completa: https://documenter.getpostman.com/view/47396454/2sBXVhBqBc 
 Esta é uma **API REST simples** desenvolvida em **Node.js** com **Express**, que permite gerenciar **Estados** e **Cidades** do Brasil.  
 O projeto atualmente possui **CRUD completo para cidades** e endpoints para listar estados. Futuramente, será conectada a um banco de dados MySQL.
 
